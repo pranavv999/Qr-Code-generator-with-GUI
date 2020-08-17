@@ -1,4 +1,3 @@
-#import qrcode
 import tkinter as tk
 from qr_gene import generate_qr
 
@@ -21,29 +20,27 @@ intro = tk.Label(root, text="Provide file name below(such as 'new_file.png')", f
 intro.pack(pady=10)
 
 file_name = tk.StringVar()
-entry1 = tk.Entry(root, justify="center", text=file_name, width=40)
+entry1 = tk.Entry(root, justify="center", text=file_name, width=40, bg='light blue', font="Terminal 13 italic")
 entry1.pack(pady=10)
 
-#entry widget to get user input
+#entry widget to get user input but this will be a text to take multiline input
 intro1 = tk.Label(root, text="Enter your Data to convert in QRCode", fg="green", font="verdana 12 italic")
 intro1.pack(pady=10)
 
-user_input = tk.StringVar()
-entry2 = tk.Entry(root, text=user_input, width=40, )
-entry2.pack(pady=10)
+entry2 = tk.Text(root, height=4, width=40, bg='light yellow', font="TimesNewRoman, 12" )
+entry2.pack()
 
 #generator function
 def generate():
 	try:
-
-		message = generate_qr(user_input, file_name)
-		user_input.set("Successful..!")
+		data = entry2.get("1.0", "end-1c")
+		message = generate_qr(data, file_name)
 		file_name.set(f"saved as {message}.png")
 		root.update()
 
 	except:
 		
-		user_input.set("Oppss...Something wrong with input try again")
+		file_name.set("Oppss...Something wrong with input try again")
 		root.update()
 
 
