@@ -1,5 +1,5 @@
 import tkinter as tk
-from qr_gene import generate_qr
+from qr_code import generate_qr
 
 #initializing tkinter
 root = tk.Tk()
@@ -20,7 +20,7 @@ intro = tk.Label(root, text="Provide file name below(such as 'new_file.png')", f
 intro.pack(pady=10)
 
 file_name = tk.StringVar()
-entry1 = tk.Entry(root, justify="center", text=file_name, width=40, bg='light blue', font="Terminal 13 italic")
+entry1 = tk.Entry(root, justify="center", text=file_name, width=30, bg='light blue', font="Terminal 13 italic")
 entry1.pack(pady=10)
 
 #entry widget to get user input but this will be a text to take multiline input
